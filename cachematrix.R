@@ -1,10 +1,10 @@
-## These functions work in tandem with the first creating a CacheMatrix, a special
-## matrix that can cache its inverse, and the second function actually 
-## providing the solving of the inverse and caching ability.
+## These functions save the inverse of a matrix outside of the fuctions so that
+## it may be called if already calculated instead of being calulated each time. 
 
 
-## Creates a CacheMatrix using a regular matrix as its argument.
-## It also contains the funtions to set and get both the matrix and its inverse.
+
+## Takes a matrix as its argument. It contains funtions to cache and retrive 
+## the matrix and the inverse.
 
 makeCacheMatrix <- function(x = matrix())
 {
@@ -24,8 +24,9 @@ makeCacheMatrix <- function(x = matrix())
 }
 
 
-## Returns the inverse of a cacheMatrix.  If it has not been cached, 
-## it computes it and caches it before returning.
+## Returns the inverse of a cached Matrix.  If the inverse has not been cached, 
+## it computes the inverse and uses the setinv function from makeCacheMatrix
+## to cache it before returning.
 
 cacheSolve <- function(x, ...) 
 {
